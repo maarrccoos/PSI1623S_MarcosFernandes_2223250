@@ -1,0 +1,167 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace NotasRapidas
+{
+    public partial class Form3 : Form
+    {
+        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=gestaonotas;Trusted_Connection=True;";
+
+        public Form3()
+        {
+            InitializeComponent();
+        }
+
+        private void CarregarCategorias()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT nome FROM Categoria";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                guna2ComboBox1.DataSource = dt;
+                guna2ComboBox1.DisplayMember = "nome";
+                guna2ComboBox1.ValueMember = "nome"; // or another column like an ID if needed
+            }
+        }
+
+        private void Form3_Load(object sender, EventArgs e)
+        {              
+            this.categoriaTableAdapter.Fill(this.gestaonotasCategoria.Categoria);   
+            CarregarCategorias();
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "INSERT INTO Categoria (Nome) VALUES (@nome)";
+
+                using (SqlCommand cmd = new SqlCommand(query, conn))
+                {
+                    cmd.Parameters.AddWithValue("@nome", guna2TextBox1.Text);
+
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
+                    MessageBox.Show("Sucesso", "Categoria criada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    guna2TextBox1.Text = "";
+                }
+
+                CarregarCategorias();
+            }
+        }
+
+        private void guna2Button2_Click(object sender, EventArgs e)
+        {
+            string categoriaSelecionada = guna2ComboBox1.SelectedValue?.ToString();
+
+            if (string.IsNullOrEmpty(categoriaSelecionada))
+            {
+                MessageBox.Show("Nenhuma categoria selecionada.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show($"Tem certeza que deseja deletar a categoria \"{categoriaSelecionada}\"?", "Confirmar Exclusão" ,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "DELETE FROM Categoria WHERE Nome = @nome";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nome", categoriaSelecionada);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+
+                CarregarCategorias();
+
+                guna2TextBox2.Text = "";
+                MessageBox.Show("Categoria deletada com sucesso.");
+            }
+            else
+            {
+                MessageBox.Show("Exclusão cancelada.");
+            }
+        }
+
+        private void guna2Button3_Click(object sender, EventArgs e)
+        {
+            string categoriaAtual = guna2ComboBox1.SelectedValue?.ToString();
+            string novoNome = guna2TextBox2.Text.Trim();
+
+            if (string.IsNullOrEmpty(categoriaAtual))
+            {
+                MessageBox.Show("Nenhuma categoria selecionada.");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(novoNome))
+            {
+                MessageBox.Show("Digite o novo nome da categoria.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show(
+                $"Tem certeza que deseja renomear a categoria \"{categoriaAtual}\" para \"{novoNome}\"?",
+                "Confirmar Alteração",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question
+            );
+
+            if (result == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "UPDATE Categoria SET Nome = @novoNome WHERE Nome = @nomeAtual";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@novoNome", novoNome);
+                        cmd.Parameters.AddWithValue("@nomeAtual", categoriaAtual);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+
+                CarregarCategorias();
+                guna2ComboBox1.SelectedValue = novoNome; // Seleciona o novo nome após atualizar
+
+                MessageBox.Show("Categoria renomeada com sucesso.");
+                guna2TextBox2.Text = "";
+            }
+            else
+            {
+                MessageBox.Show("Alteração cancelada.");
+            }
+        }
+
+    }
+}
