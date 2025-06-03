@@ -31,16 +31,16 @@ namespace NotasRapidas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
+            Form4 form4 = new Form4();
             this.Hide();
-            form3.ShowDialog();
+            form4.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Form4 form4 = new Form4();
+            Form3 form3 = new Form3();
             this.Hide(); 
-            form4.ShowDialog();
+            form3.ShowDialog();
         }
     }
 }

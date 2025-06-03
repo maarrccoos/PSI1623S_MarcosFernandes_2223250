@@ -75,6 +75,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(828, 389);
             this.panel1.TabIndex = 8;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // guna2GradientPanel2
             // 
@@ -85,7 +86,7 @@
             this.guna2GradientPanel2.Controls.Add(this.guna2ComboBox1);
             this.guna2GradientPanel2.Controls.Add(this.label3);
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.Silver;
-            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.Gray;
+            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.Gainsboro;
             this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.guna2GradientPanel2.Location = new System.Drawing.Point(512, 35);
             this.guna2GradientPanel2.Name = "guna2GradientPanel2";
@@ -128,7 +129,7 @@
             this.guna2TextBox2.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox2.Location = new System.Drawing.Point(36, 138);
             this.guna2TextBox2.Name = "guna2TextBox2";
-            this.guna2TextBox2.PlaceholderText = "Novo nome da categoria (opcional)\r\n";
+            this.guna2TextBox2.PlaceholderText = "Novo nome do estado (opcional)\r\n";
             this.guna2TextBox2.SelectedText = "";
             this.guna2TextBox2.Size = new System.Drawing.Size(214, 36);
             this.guna2TextBox2.TabIndex = 12;
@@ -156,8 +157,6 @@
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2ComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedItem", this.categoriaBindingSource2, "nome", true));
-            this.guna2ComboBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.categoriaBindingSource2, "nome", true));
             this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
@@ -187,11 +186,11 @@
             this.label3.BackColor = System.Drawing.Color.Transparent;
             this.label3.Font = new System.Drawing.Font("Filson Pro Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(36, 8);
+            this.label3.Location = new System.Drawing.Point(51, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 28);
+            this.label3.Size = new System.Drawing.Size(179, 28);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Editar categoria";
+            this.label3.Text = "Editar estado";
             // 
             // guna2GradientPanel1
             // 
@@ -200,7 +199,7 @@
             this.guna2GradientPanel1.Controls.Add(this.guna2TextBox1);
             this.guna2GradientPanel1.Controls.Add(this.label2);
             this.guna2GradientPanel1.FillColor = System.Drawing.Color.Silver;
-            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.Gray;
+            this.guna2GradientPanel1.FillColor2 = System.Drawing.Color.Gainsboro;
             this.guna2GradientPanel1.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
             this.guna2GradientPanel1.Location = new System.Drawing.Point(27, 35);
             this.guna2GradientPanel1.Name = "guna2GradientPanel1";
@@ -222,7 +221,7 @@
             this.guna2Button1.Name = "guna2Button1";
             this.guna2Button1.Size = new System.Drawing.Size(214, 45);
             this.guna2Button1.TabIndex = 11;
-            this.guna2Button1.Text = "Criar nova categoria";
+            this.guna2Button1.Text = "Criar novo estado";
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
@@ -242,7 +241,7 @@
             this.guna2TextBox1.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.guna2TextBox1.Location = new System.Drawing.Point(33, 138);
             this.guna2TextBox1.Name = "guna2TextBox1";
-            this.guna2TextBox1.PlaceholderText = "Nome da categoria...";
+            this.guna2TextBox1.PlaceholderText = "Nome do estado da nota...";
             this.guna2TextBox1.SelectedText = "";
             this.guna2TextBox1.Size = new System.Drawing.Size(214, 36);
             this.guna2TextBox1.TabIndex = 10;
@@ -253,11 +252,11 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Filson Pro Medium", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(36, 8);
+            this.label2.Location = new System.Drawing.Point(57, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 28);
+            this.label2.Size = new System.Drawing.Size(164, 28);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Criar categorias";
+            this.label2.Text = "Criar estado";
             // 
             // label1
             // 
@@ -265,11 +264,12 @@
             this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Filson Pro", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.label1.Location = new System.Drawing.Point(370, 25);
+            this.label1.Location = new System.Drawing.Point(400, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(290, 56);
+            this.label1.Size = new System.Drawing.Size(215, 56);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Categorias";
+            this.label1.Text = "Estados";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // gestaonotasCategoria
             // 
@@ -323,6 +323,7 @@
             this.ClientSize = new System.Drawing.Size(1022, 575);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form3";
             this.Text = "Categorias";
             this.Load += new System.EventHandler(this.Form3_Load);

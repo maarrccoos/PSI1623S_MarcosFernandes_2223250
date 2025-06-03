@@ -20,11 +20,11 @@ namespace NotasRapidas
             InitializeComponent();
         }
 
-        private void CarregarCategorias()
+        private void CarregarEstados()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT nome FROM Categoria";
+                string query = "SELECT nome FROM EstadoNota";
 
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
@@ -32,14 +32,14 @@ namespace NotasRapidas
 
                 guna2ComboBox1.DataSource = dt;
                 guna2ComboBox1.DisplayMember = "nome";
-                guna2ComboBox1.ValueMember = "nome"; // or another column like an ID if needed
+                guna2ComboBox1.ValueMember = "nome";
             }
         }
 
         private void Form3_Load(object sender, EventArgs e)
         {              
-            this.categoriaTableAdapter.Fill(this.gestaonotasCategoria.Categoria);   
-            CarregarCategorias();
+            this.categoriaTableAdapter.Fill(this.gestaonotasCategoria.Categoria);
+            CarregarEstados();
         }
 
         private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -56,7 +56,7 @@ namespace NotasRapidas
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Categoria (Nome) VALUES (@nome)";
+                string query = "INSERT INTO EstadoNota (Nome) VALUES (@nome)";
 
                 using (SqlCommand cmd = new SqlCommand(query, conn))
                 {
@@ -65,45 +65,45 @@ namespace NotasRapidas
                     conn.Open();
                     cmd.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("Sucesso", "Categoria criada com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Sucesso", "Estado criado com sucesso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     guna2TextBox1.Text = "";
                 }
 
-                CarregarCategorias();
+                CarregarEstados();
             }
         }
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
-            string categoriaSelecionada = guna2ComboBox1.SelectedValue?.ToString();
+            string estadoSelecionado = guna2ComboBox1.SelectedValue?.ToString();
 
-            if (string.IsNullOrEmpty(categoriaSelecionada))
+            if (string.IsNullOrEmpty(estadoSelecionado))
             {
-                MessageBox.Show("Nenhuma categoria selecionada.");
+                MessageBox.Show("Nenhum estado selecionado.");
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"Tem certeza que deseja deletar a categoria \"{categoriaSelecionada}\"?", "Confirmar Exclusão" ,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Tem certeza que deseja deletar a categoria \"{estadoSelecionado}\"?", "Confirmar Exclusão" ,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    string query = "DELETE FROM Categoria WHERE Nome = @nome";
+                    string query = "DELETE FROM EstadoNota WHERE Nome = @nome";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@nome", categoriaSelecionada);
+                        cmd.Parameters.AddWithValue("@nome", estadoSelecionado);
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
                     }
                 }
 
-                CarregarCategorias();
+                CarregarEstados();
 
                 guna2TextBox2.Text = "";
-                MessageBox.Show("Categoria deletada com sucesso.");
+                MessageBox.Show("Estado deletado com sucesso.");
             }
             else
             {
@@ -113,23 +113,23 @@ namespace NotasRapidas
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
-            string categoriaAtual = guna2ComboBox1.SelectedValue?.ToString();
+            string estadoAtual = guna2ComboBox1.SelectedValue?.ToString();
             string novoNome = guna2TextBox2.Text.Trim();
 
-            if (string.IsNullOrEmpty(categoriaAtual))
+            if (string.IsNullOrEmpty(estadoAtual))
             {
-                MessageBox.Show("Nenhuma categoria selecionada.");
+                MessageBox.Show("Nenhum estado selecionado.");
                 return;
             }
 
             if (string.IsNullOrEmpty(novoNome))
             {
-                MessageBox.Show("Digite o novo nome da categoria.");
+                MessageBox.Show("Digite o novo nome do estado.");
                 return;
             }
 
             DialogResult result = MessageBox.Show(
-                $"Tem certeza que deseja renomear a categoria \"{categoriaAtual}\" para \"{novoNome}\"?",
+                $"Tem certeza que deseja renomear o estado \"{estadoAtual}\" para \"{novoNome}\"?",
                 "Confirmar Alteração",
                 MessageBoxButtons.YesNo,
                 MessageBoxIcon.Question
@@ -139,28 +139,37 @@ namespace NotasRapidas
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    string query = "UPDATE Categoria SET Nome = @novoNome WHERE Nome = @nomeAtual";
+                    string query = "UPDATE EstadoNota SET Nome = @novoNome WHERE Nome = @nomeAtual";
 
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@novoNome", novoNome);
-                        cmd.Parameters.AddWithValue("@nomeAtual", categoriaAtual);
+                        cmd.Parameters.AddWithValue("@nomeAtual", estadoAtual);
                         conn.Open();
                         cmd.ExecuteNonQuery();
                         conn.Close();
                     }
                 }
 
-                CarregarCategorias();
+                CarregarEstados();
                 guna2ComboBox1.SelectedValue = novoNome; // Seleciona o novo nome após atualizar
 
-                MessageBox.Show("Categoria renomeada com sucesso.");
+                MessageBox.Show("Estado renomeado com sucesso.");
                 guna2TextBox2.Text = "";
             }
             else
             {
                 MessageBox.Show("Alteração cancelada.");
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
 
     }
