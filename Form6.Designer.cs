@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form6));
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.guna2ComboBox2 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,6 +119,16 @@
             this.label3.Size = new System.Drawing.Size(81, 19);
             this.label3.TabIndex = 15;
             this.label3.Text = "Categoria";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(129, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 19);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Título";
             // 
             // guna2ComboBox2
             // 
@@ -201,16 +212,6 @@
             this.guna2ImageButton1.UseTransparentBackground = true;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Yu Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(129, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 19);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Título";
-            // 
             // Form6
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,8 +221,9 @@
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form6";
-            this.Text = "Form6";
+            this.Text = "Editar / Ler Nota";
             this.Load += new System.EventHandler(this.Form6_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

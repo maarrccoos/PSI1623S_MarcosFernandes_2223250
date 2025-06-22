@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
+            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.elipseBG = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             this.SuspendLayout();
@@ -51,26 +52,6 @@
             this.panel1.Size = new System.Drawing.Size(461, 389);
             this.panel1.TabIndex = 5;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
-            // 
-            // guna2Button3
-            // 
-            this.guna2Button3.Animated = true;
-            this.guna2Button3.AutoRoundedCorners = true;
-            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.FillColor = System.Drawing.Color.Firebrick;
-            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(35, 133);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(214, 29);
-            this.guna2Button3.TabIndex = 14;
-            this.guna2Button3.Text = "Apagar nota";
-            this.guna2Button3.UseTransparentBackground = true;
-            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // guna2Button1
             // 
@@ -91,6 +72,40 @@
             this.guna2Button1.UseTransparentBackground = true;
             this.guna2Button1.Click += new System.EventHandler(this.guna2Button1_Click);
             // 
+            // guna2GradientPanel2
+            // 
+            this.guna2GradientPanel2.BorderRadius = 5;
+            this.guna2GradientPanel2.Controls.Add(this.guna2Button4);
+            this.guna2GradientPanel2.Controls.Add(this.guna2ComboBox1);
+            this.guna2GradientPanel2.Controls.Add(this.guna2Button3);
+            this.guna2GradientPanel2.FillColor = System.Drawing.Color.Silver;
+            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.Gainsboro;
+            this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
+            this.guna2GradientPanel2.Location = new System.Drawing.Point(91, 68);
+            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
+            this.guna2GradientPanel2.Size = new System.Drawing.Size(284, 186);
+            this.guna2GradientPanel2.TabIndex = 15;
+            // 
+            // guna2Button4
+            // 
+            this.guna2Button4.Animated = true;
+            this.guna2Button4.AutoRoundedCorners = true;
+            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.FillColor = System.Drawing.Color.LimeGreen;
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.Location = new System.Drawing.Point(35, 86);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.Size = new System.Drawing.Size(214, 41);
+            this.guna2Button4.TabIndex = 16;
+            this.guna2Button4.Text = "Editar / Ler nota";
+            this.guna2Button4.UseTransparentBackground = true;
+            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
+            // 
             // guna2ComboBox1
             // 
             this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
@@ -107,19 +122,25 @@
             this.guna2ComboBox1.TabIndex = 1;
             this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
-            // guna2GradientPanel2
+            // guna2Button3
             // 
-            this.guna2GradientPanel2.BorderRadius = 5;
-            this.guna2GradientPanel2.Controls.Add(this.guna2Button4);
-            this.guna2GradientPanel2.Controls.Add(this.guna2ComboBox1);
-            this.guna2GradientPanel2.Controls.Add(this.guna2Button3);
-            this.guna2GradientPanel2.FillColor = System.Drawing.Color.Silver;
-            this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.Gainsboro;
-            this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.guna2GradientPanel2.Location = new System.Drawing.Point(91, 68);
-            this.guna2GradientPanel2.Name = "guna2GradientPanel2";
-            this.guna2GradientPanel2.Size = new System.Drawing.Size(284, 186);
-            this.guna2GradientPanel2.TabIndex = 15;
+            this.guna2Button3.Animated = true;
+            this.guna2Button3.AutoRoundedCorners = true;
+            this.guna2Button3.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button3.FillColor = System.Drawing.Color.Firebrick;
+            this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button3.ForeColor = System.Drawing.Color.White;
+            this.guna2Button3.Location = new System.Drawing.Point(35, 133);
+            this.guna2Button3.Name = "guna2Button3";
+            this.guna2Button3.Size = new System.Drawing.Size(214, 29);
+            this.guna2Button3.TabIndex = 14;
+            this.guna2Button3.Text = "Apagar nota";
+            this.guna2Button3.UseTransparentBackground = true;
+            this.guna2Button3.Click += new System.EventHandler(this.guna2Button3_Click);
             // 
             // elipseBG
             // 
@@ -157,26 +178,6 @@
             this.guna2ImageButton1.UseTransparentBackground = true;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
-            // guna2Button4
-            // 
-            this.guna2Button4.Animated = true;
-            this.guna2Button4.AutoRoundedCorners = true;
-            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.FillColor = System.Drawing.Color.LimeGreen;
-            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.Location = new System.Drawing.Point(35, 86);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(214, 41);
-            this.guna2Button4.TabIndex = 16;
-            this.guna2Button4.Text = "Editar / Ler nota";
-            this.guna2Button4.UseTransparentBackground = true;
-            this.guna2Button4.Click += new System.EventHandler(this.guna2Button4_Click);
-            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,9 +188,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form2";
-            this.Text = "Form2";
+            this.Text = "Gerir Notas";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
             this.guna2GradientPanel2.ResumeLayout(false);

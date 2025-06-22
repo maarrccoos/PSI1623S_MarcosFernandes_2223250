@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             this.elipseBG = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2GradientPanel2 = new Guna.UI2.WinForms.Guna2GradientPanel();
@@ -276,9 +277,10 @@
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form4";
-            this.Text = "Form4";
+            this.Text = "Gerir Categorias";
             this.Load += new System.EventHandler(this.Form4_Load);
             this.panel1.ResumeLayout(false);
             this.guna2GradientPanel2.ResumeLayout(false);

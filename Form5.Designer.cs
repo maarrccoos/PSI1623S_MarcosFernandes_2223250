@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             this.panel1 = new Guna.UI2.WinForms.Guna2Panel();
             this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -222,9 +223,10 @@
             this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form5";
-            this.Text = "Form5";
+            this.Text = "Criar Nota";
             this.Load += new System.EventHandler(this.Form5_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

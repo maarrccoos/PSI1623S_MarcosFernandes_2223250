@@ -125,7 +125,10 @@ namespace NotasRapidas
 
                 Form6 formEdicao = new Form6(notaIdSelecionada);
 
-                formEdicao.Show();       
+                this.Hide();
+                formEdicao.ShowDialog();
+                this.Show();
+                CarregarNotas();
             }
             catch (Exception ex)
             {
