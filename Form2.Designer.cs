@@ -38,15 +38,14 @@
             this.elipseBG = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
+            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
             this.panel1.SuspendLayout();
+            this.guna2GradientPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.guna2Button3);
             this.panel1.Controls.Add(this.guna2Button1);
-            this.panel1.Controls.Add(this.guna2Button2);
-            this.panel1.Controls.Add(this.guna2ComboBox1);
             this.panel1.Controls.Add(this.guna2GradientPanel2);
             this.panel1.Location = new System.Drawing.Point(286, 93);
             this.panel1.Name = "panel1";
@@ -66,7 +65,7 @@
             this.guna2Button3.FillColor = System.Drawing.Color.Firebrick;
             this.guna2Button3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.Location = new System.Drawing.Point(126, 199);
+            this.guna2Button3.Location = new System.Drawing.Point(35, 159);
             this.guna2Button3.Name = "guna2Button3";
             this.guna2Button3.Size = new System.Drawing.Size(214, 29);
             this.guna2Button3.TabIndex = 14;
@@ -84,9 +83,9 @@
             this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.guna2Button1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.Location = new System.Drawing.Point(126, 313);
+            this.guna2Button1.Location = new System.Drawing.Point(126, 327);
             this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(214, 50);
+            this.guna2Button1.Size = new System.Drawing.Size(214, 36);
             this.guna2Button1.TabIndex = 12;
             this.guna2Button1.Text = "Criar nova nota";
             this.guna2Button1.UseTransparentBackground = true;
@@ -104,7 +103,7 @@
             this.guna2Button2.FillColor = System.Drawing.Color.LimeGreen;
             this.guna2Button2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.Location = new System.Drawing.Point(126, 164);
+            this.guna2Button2.Location = new System.Drawing.Point(35, 124);
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(214, 29);
             this.guna2Button2.TabIndex = 13;
@@ -121,7 +120,7 @@
             this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.guna2ComboBox1.ItemHeight = 30;
-            this.guna2ComboBox1.Location = new System.Drawing.Point(126, 103);
+            this.guna2ComboBox1.Location = new System.Drawing.Point(35, 24);
             this.guna2ComboBox1.Name = "guna2ComboBox1";
             this.guna2ComboBox1.Size = new System.Drawing.Size(214, 36);
             this.guna2ComboBox1.TabIndex = 1;
@@ -130,6 +129,10 @@
             // guna2GradientPanel2
             // 
             this.guna2GradientPanel2.BorderRadius = 5;
+            this.guna2GradientPanel2.Controls.Add(this.guna2Button4);
+            this.guna2GradientPanel2.Controls.Add(this.guna2ComboBox1);
+            this.guna2GradientPanel2.Controls.Add(this.guna2Button3);
+            this.guna2GradientPanel2.Controls.Add(this.guna2Button2);
             this.guna2GradientPanel2.FillColor = System.Drawing.Color.Silver;
             this.guna2GradientPanel2.FillColor2 = System.Drawing.Color.Gainsboro;
             this.guna2GradientPanel2.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
@@ -174,6 +177,24 @@
             this.guna2ImageButton1.UseTransparentBackground = true;
             this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
             // 
+            // guna2Button4
+            // 
+            this.guna2Button4.Animated = true;
+            this.guna2Button4.AutoRoundedCorners = true;
+            this.guna2Button4.BackColor = System.Drawing.Color.Transparent;
+            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.guna2Button4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2Button4.ForeColor = System.Drawing.Color.White;
+            this.guna2Button4.Location = new System.Drawing.Point(35, 77);
+            this.guna2Button4.Name = "guna2Button4";
+            this.guna2Button4.Size = new System.Drawing.Size(214, 41);
+            this.guna2Button4.TabIndex = 16;
+            this.guna2Button4.Text = "Ler nota";
+            this.guna2Button4.UseTransparentBackground = true;
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +210,7 @@
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.panel1.ResumeLayout(false);
+            this.guna2GradientPanel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -205,5 +227,6 @@
         private Guna.UI2.WinForms.Guna2Button guna2Button2;
         private Guna.UI2.WinForms.Guna2GradientPanel guna2GradientPanel2;
         private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
+        private Guna.UI2.WinForms.Guna2Button guna2Button4;
     }
 }

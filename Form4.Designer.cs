@@ -42,6 +42,7 @@
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -247,12 +248,32 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Categorias";
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.Image = global::NotasRapidas.Properties.Resources.goback;
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Image = global::NotasRapidas.Properties.Resources.goback;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(978, 12);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.Image = global::NotasRapidas.Properties.Resources.goback;
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.TabIndex = 11;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::NotasRapidas.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(1022, 575);
+            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
@@ -283,5 +304,6 @@
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }

@@ -52,6 +52,7 @@
             this.categoriaTableAdapter1 = new NotasRapidas.gestaonotasDataSetTableAdapters.CategoriaTableAdapter();
             this.categoriaBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.elipseBG = new Guna.UI2.WinForms.Guna2Elipse(this.components);
+            this.guna2ImageButton1 = new Guna.UI2.WinForms.Guna2ImageButton();
             this.panel1.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
             this.guna2GradientPanel1.SuspendLayout();
@@ -314,6 +315,25 @@
             this.elipseBG.BorderRadius = 10;
             this.elipseBG.TargetControl = this.panel1;
             // 
+            // guna2ImageButton1
+            // 
+            this.guna2ImageButton1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ImageButton1.CheckedState.ImageSize = new System.Drawing.Size(64, 64);
+            this.guna2ImageButton1.HoverState.Image = global::NotasRapidas.Properties.Resources.goback;
+            this.guna2ImageButton1.HoverState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Image = global::NotasRapidas.Properties.Resources.goback;
+            this.guna2ImageButton1.ImageOffset = new System.Drawing.Point(0, 0);
+            this.guna2ImageButton1.ImageRotate = 0F;
+            this.guna2ImageButton1.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Location = new System.Drawing.Point(978, 12);
+            this.guna2ImageButton1.Name = "guna2ImageButton1";
+            this.guna2ImageButton1.PressedState.Image = global::NotasRapidas.Properties.Resources.goback;
+            this.guna2ImageButton1.PressedState.ImageSize = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.Size = new System.Drawing.Size(32, 32);
+            this.guna2ImageButton1.TabIndex = 10;
+            this.guna2ImageButton1.UseTransparentBackground = true;
+            this.guna2ImageButton1.Click += new System.EventHandler(this.guna2ImageButton1_Click);
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -321,12 +341,13 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::NotasRapidas.Properties.Resources.bg;
             this.ClientSize = new System.Drawing.Size(1022, 575);
+            this.Controls.Add(this.guna2ImageButton1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form3";
-            this.Text = "Categorias";
+            this.Text = "v";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.panel1.ResumeLayout(false);
             this.guna2GradientPanel2.ResumeLayout(false);
@@ -370,5 +391,6 @@
         private System.Windows.Forms.Label label3;
         private Guna.UI2.WinForms.Guna2Button guna2Button3;
         private Guna.UI2.WinForms.Guna2TextBox guna2TextBox2;
+        private Guna.UI2.WinForms.Guna2ImageButton guna2ImageButton1;
     }
 }

@@ -22,7 +22,7 @@ namespace NotasRapidas
             Form2 form2 = new Form2(); 
             this.Hide();
             form2.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -35,7 +35,7 @@ namespace NotasRapidas
             Form4 form4 = new Form4();
             this.Hide();
             form4.ShowDialog();
-            this.Close();
+            this.Show();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -43,7 +43,7 @@ namespace NotasRapidas
             Form3 form3 = new Form3();
             this.Hide(); 
             form3.ShowDialog();
-            this.Close();
+            this.Show();
         }
     }
 }

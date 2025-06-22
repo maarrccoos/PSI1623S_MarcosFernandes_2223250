@@ -53,12 +53,15 @@ namespace NotasRapidas
 
         private void guna2Button1_Click(object sender, EventArgs e)
         {
-
+            Form5 form5 = new Form5();
+            this.Hide();
+            form5.ShowDialog();
+            this.Show();
         }
 
         private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
     }
 }
