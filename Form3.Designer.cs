@@ -35,13 +35,13 @@
             this.guna2TextBox2 = new Guna.UI2.WinForms.Guna2TextBox();
             this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
-            this.categoriaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
-            this.gestaonotasDataSet = new NotasRapidas.gestaonotasDataSet();
             this.label3 = new System.Windows.Forms.Label();
             this.guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
             this.guna2TextBox1 = new Guna.UI2.WinForms.Guna2TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.categoriaBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            this.gestaonotasDataSet = new NotasRapidas.gestaonotasDataSet();
             this.label1 = new System.Windows.Forms.Label();
             this.gestaonotasCategoria = new NotasRapidas.gestaonotasCategoria();
             this.categoriaBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -54,9 +54,9 @@
             this.elipseBG = new Guna.UI2.WinForms.Guna2Elipse(this.components);
             this.panel1.SuspendLayout();
             this.guna2GradientPanel2.SuspendLayout();
+            this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestaonotasDataSet)).BeginInit();
-            this.guna2GradientPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gestaonotasCategoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestaonotasCategoriaBindingSource)).BeginInit();
@@ -150,7 +150,7 @@
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(214, 30);
             this.guna2Button2.TabIndex = 11;
-            this.guna2Button2.Text = "Deletar";
+            this.guna2Button2.Text = "Apagar";
             this.guna2Button2.UseTransparentBackground = true;
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
@@ -170,16 +170,6 @@
             this.guna2ComboBox1.TabIndex = 0;
             this.guna2ComboBox1.SelectedIndexChanged += new System.EventHandler(this.guna2ComboBox1_SelectedIndexChanged);
             // 
-            // categoriaBindingSource2
-            // 
-            this.categoriaBindingSource2.DataMember = "Categoria";
-            this.categoriaBindingSource2.DataSource = this.gestaonotasDataSet;
-            // 
-            // gestaonotasDataSet
-            // 
-            this.gestaonotasDataSet.DataSetName = "gestaonotasDataSet";
-            this.gestaonotasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -188,7 +178,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(51, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(179, 28);
+            this.label3.Size = new System.Drawing.Size(184, 28);
             this.label3.TabIndex = 9;
             this.label3.Text = "Editar estado";
             // 
@@ -254,9 +244,19 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(57, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(164, 28);
+            this.label2.Size = new System.Drawing.Size(169, 28);
             this.label2.TabIndex = 9;
             this.label2.Text = "Criar estado";
+            // 
+            // categoriaBindingSource2
+            // 
+            this.categoriaBindingSource2.DataMember = "Categoria";
+            this.categoriaBindingSource2.DataSource = this.gestaonotasDataSet;
+            // 
+            // gestaonotasDataSet
+            // 
+            this.gestaonotasDataSet.DataSetName = "gestaonotasDataSet";
+            this.gestaonotasDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // label1
             // 
@@ -324,16 +324,17 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "Form3";
             this.Text = "Categorias";
             this.Load += new System.EventHandler(this.Form3_Load);
             this.panel1.ResumeLayout(false);
             this.guna2GradientPanel2.ResumeLayout(false);
             this.guna2GradientPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gestaonotasDataSet)).EndInit();
             this.guna2GradientPanel1.ResumeLayout(false);
             this.guna2GradientPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gestaonotasDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestaonotasCategoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.categoriaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gestaonotasCategoriaBindingSource)).EndInit();

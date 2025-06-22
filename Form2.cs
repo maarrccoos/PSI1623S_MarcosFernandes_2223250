@@ -13,17 +13,50 @@ namespace NotasRapidas
 {
     public partial class Form2 : Form
     {
+        string connectionString = "Server=(localdb)\\MSSQLLocalDB;Database=gestaonotas;Trusted_Connection=True;";
+
         public Form2()
         {
             InitializeComponent();
         }
 
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        private void CarregarNotas()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT titulo FROM Nota";
+
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                guna2ComboBox1.DataSource = dt;
+                guna2ComboBox1.DisplayMember = "titulo";
+                guna2ComboBox1.ValueMember = "titulo";
+            }
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void guna2ComboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void guna2ImageButton1_Click(object sender, EventArgs e)
         {
 
         }

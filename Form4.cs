@@ -59,7 +59,40 @@ namespace NotasRapidas
 
         private void guna2Button2_Click(object sender, EventArgs e)
         {
+            string categoriaSelecionada = guna2ComboBox1.SelectedValue?.ToString();
 
+            if (string.IsNullOrEmpty(categoriaSelecionada))
+            {
+                MessageBox.Show("Nenhuma categoria selecionada.");
+                return;
+            }
+
+            DialogResult result = MessageBox.Show($"Tem certeza que deseja apagar a categoria \"{categoriaSelecionada}\"?", "Confirmar Exclusão", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "DELETE FROM Categoria WHERE Nome = @nome";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@nome", categoriaSelecionada);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+
+                CarregarCategorias();
+
+                guna2TextBox2.Text = "";
+                MessageBox.Show("Categoria apagada com sucesso.");
+            }
+            else
+            {
+                MessageBox.Show("Exclusão cancelada.");
+            }
         }
 
         private void guna2Button3_Click(object sender, EventArgs e)

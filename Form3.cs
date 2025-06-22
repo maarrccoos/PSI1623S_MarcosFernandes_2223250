@@ -83,7 +83,7 @@ namespace NotasRapidas
                 return;
             }
 
-            DialogResult result = MessageBox.Show($"Tem certeza que deseja deletar a categoria \"{estadoSelecionado}\"?", "Confirmar Exclusão" ,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult result = MessageBox.Show($"Tem certeza que deseja apagar o estado \"{estadoSelecionado}\"?", "Confirmar Exclusão" ,MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (result == DialogResult.Yes)
             {
@@ -103,7 +103,7 @@ namespace NotasRapidas
                 CarregarEstados();
 
                 guna2TextBox2.Text = "";
-                MessageBox.Show("Estado deletado com sucesso.");
+                MessageBox.Show("Estado apagado com sucesso.");
             }
             else
             {

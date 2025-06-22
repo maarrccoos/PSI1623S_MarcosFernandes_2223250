@@ -137,7 +137,7 @@
             this.guna2Button2.Name = "guna2Button2";
             this.guna2Button2.Size = new System.Drawing.Size(214, 30);
             this.guna2Button2.TabIndex = 11;
-            this.guna2Button2.Text = "Deletar";
+            this.guna2Button2.Text = "Apagar";
             this.guna2Button2.UseTransparentBackground = true;
             this.guna2Button2.Click += new System.EventHandler(this.guna2Button2_Click);
             // 
@@ -165,7 +165,7 @@
             this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(36, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(214, 28);
+            this.label3.Size = new System.Drawing.Size(220, 28);
             this.label3.TabIndex = 9;
             this.label3.Text = "Editar categoria";
             // 
@@ -231,7 +231,7 @@
             this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(36, 8);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(211, 28);
+            this.label2.Size = new System.Drawing.Size(217, 28);
             this.label2.TabIndex = 9;
             this.label2.Text = "Criar categorias";
             // 
@@ -255,6 +255,7 @@
             this.ClientSize = new System.Drawing.Size(1022, 575);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "Form4";
             this.Text = "Form4";
             this.Load += new System.EventHandler(this.Form4_Load);
