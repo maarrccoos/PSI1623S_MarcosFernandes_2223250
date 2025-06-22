@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Guna.UI2.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,35 +21,33 @@ namespace NotasRapidas
             InitializeComponent();
         }
 
-        private void CarregarEstados()
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT nome FROM EstadoNota";
-
-                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-
-                guna2ComboBox1.DataSource = dt;
-                guna2ComboBox1.DisplayMember = "nome";
-                guna2ComboBox1.ValueMember = "nome";
-            }
-        }
-
         private void CarregarCategorias()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = "SELECT nome FROM Categoria";
-
+                string query = "SELECT id, nome FROM Categoria";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
 
                 guna2ComboBox2.DataSource = dt;
                 guna2ComboBox2.DisplayMember = "nome";
-                guna2ComboBox2.ValueMember = "nome";
+                guna2ComboBox2.ValueMember = "id";
+            }
+        }
+
+        private void CarregarEstados()
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT id, nome FROM EstadoNota";
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+                DataTable dt = new DataTable();
+                adapter.Fill(dt);
+
+                guna2ComboBox1.DataSource = dt;
+                guna2ComboBox1.DisplayMember = "nome";
+                guna2ComboBox1.ValueMember = "id";
             }
         }
 
@@ -75,7 +74,60 @@ namespace NotasRapidas
 
         private void guna2Button3_Click(object sender, EventArgs e)
         {
+            string titulo = guna2TextBox1.Text.Trim();
+            string texto = richTextBox1.Text.Trim();
 
+            object categoriaSelecionada = guna2ComboBox2.SelectedValue;
+            object estadoSelecionado = guna2ComboBox1.SelectedValue;
+
+            if (string.IsNullOrEmpty(titulo) || string.IsNullOrEmpty(texto))
+            {
+                MessageBox.Show("O título e o texto da nota devem ser preenchidos.", "Campos Vazios", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (categoriaSelecionada == null || estadoSelecionado == null)
+            {
+                MessageBox.Show("Por favor, selecione uma categoria e um estado.", "Seleção Inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (titulo.Length > 150)
+            {
+                MessageBox.Show("O título não pode ter mais de 150 caracteres.", "Título Demasiado Longo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            try
+            {
+                int categoriaId = Convert.ToInt32(categoriaSelecionada);
+                int estadoId = Convert.ToInt32(estadoSelecionado);
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    string query = "INSERT INTO Nota (titulo, texto, categoriaId, estadoNotaId) VALUES (@Titulo, @Texto, @CategoriaId, @EstadoNotaId)";
+
+                    using (SqlCommand cmd = new SqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@Titulo", titulo);
+                        cmd.Parameters.AddWithValue("@Texto", texto);
+                        cmd.Parameters.AddWithValue("@CategoriaId", categoriaId);
+                        cmd.Parameters.AddWithValue("@EstadoNotaId", estadoId);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+
+                        MessageBox.Show("Nota criada com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        this.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocorreu um erro ao criar a nota: " + ex.Message, "Erro de Base de Dados", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
