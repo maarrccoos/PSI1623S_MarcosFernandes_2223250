@@ -24,7 +24,7 @@ Este projeto permite aos utilizadores criar, editar, organizar e eliminar notas,
 
 -   **Linguagem**: C#
 -   **Framework**: .NET Framework
--   **Interface Gráfica**: Windows Forms
+-   **Interface Gráfica**: Windows Forms, GunaUI
 
 ## 🚀 Como Instalar e Executar
 
